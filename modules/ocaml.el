@@ -1,3 +1,4 @@
+;; OCaml Setup  -*- lexical-binding: t; -*-
 ;; Major mode for editing Dune project files
 (use-package dune
   :ensure t)

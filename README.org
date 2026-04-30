@@ -8,4 +8,3 @@ This is a custom emacs config, focused mainly on being minimal and using as few 
 2. [[https://github.com/jamescherti/minimal-emacs.d][Minimal Emacs]]
 3. [[https://github.com/xenodium/dotsies][Xenodium's Dotfiles]]
 4. [[https://github.com/joshuablais/studium-emacs/][Studium Emacs (Joshua Blais)]]
-
