@@ -69,4 +69,5 @@
 		eshell-mode-hook))
   (add-hook mode (lambda () (display-line-numbers-mode 0))))
 
+(setq visual-fill-column-center-text t)
 (provide 'visuals)

@@ -5,6 +5,7 @@
   (variable-pitch-mode 1)
   (auto-fill-mode 0)
   (visual-line-mode 1)
+  (visual-fill-column-mode 1)
   (setq org-startup-indented t))
 
 (use-package org

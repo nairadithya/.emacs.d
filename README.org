@@ -1,0 +1,11 @@
+#+title: README
+#+author: Adithya Nair
+
+This is a custom emacs config, focused mainly on being minimal and using as few external packages as possible.
+
+* Inspiration
+1. [[https://github.com/ashton314/emacs-bedrock][Emacs Bedrock]]
+2. [[https://github.com/jamescherti/minimal-emacs.d][Minimal Emacs]]
+3. [[https://github.com/xenodium/dotsies][Xenodium's Dotfiles]]
+4. [[https://github.com/joshuablais/studium-emacs/][Studium Emacs (Joshua Blais)]]
+
