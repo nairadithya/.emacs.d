@@ -5,7 +5,7 @@
  posts-directory "src/content/blog/"
  )
 
-(defun find-blog-post ()
+(defun my/find-blog-post ()
   (interactive)
   (let ((default-directory (concat website-directory posts-directory)))
     (call-interactively #'find-file)))
@@ -16,5 +16,11 @@
   (interactive)
   (let ((default-directory org-notes-directory))
     (call-interactively #'find-file)))
+
+(defun my/find-file-in-emacs-dir ()
+  (interactive)
+  (project-switch-project user-emacs-directory)
+  (project-find-file)
+  )
 
 (provide 'utils)

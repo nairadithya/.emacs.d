@@ -45,6 +45,11 @@
    '("w j" . windmove-down)
    '("w k" . windmove-down)
    '("w c" . delete-window)
+
+   ;; Utils
+   '("n b" . find-blog-post)
+   '("f P" . my/find-file-in-emacs-dir)
+   '("n f" . my/find-notes)
    
    '("g" . (lambda () (interactive) (require 'magit) (magit-status)))
    '("?" . meow-cheatsheet))

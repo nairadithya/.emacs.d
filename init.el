@@ -26,13 +26,13 @@
 (load-module "meow-config")
 (load-module "org-config")
 
+;; use-package with package.el:
 (use-package meow :ensure t
   :config
   (meow-setup)
   (meow-global-mode 1)
   )
 
-;; use-package with package.el:
 (use-package dashboard
   :ensure t
   :config
@@ -42,12 +42,6 @@
   (dashboard-vertically-center-content t)
   (dashboard-show-shortcuts nil)
   )
-
-(use-package term
-  :config
-  (setq explicit-shell-file-name "bash")
-  ;;(setq explicit-zsh-args '())
-  (setq term-prompt-regexp "^[^#$%>\n]*[#$%>] *"))
 
 (use-package emacs
   :custom
@@ -117,6 +111,8 @@
 
 (use-package project
   :ensure nil
+  :config
+  (setq project-switch-commands 'project-find-file)
  )
 
 ;; MINAD Stack

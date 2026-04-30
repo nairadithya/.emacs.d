@@ -6,6 +6,7 @@
   (auto-fill-mode 0)
   (visual-line-mode 1)
   (visual-fill-column-mode 1)
+  (add-hook 'org-mode-hook 'variable-pitch-mode)
   (setq org-startup-indented t))
 
 (use-package org
