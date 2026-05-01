@@ -18,6 +18,7 @@
 (add-to-list 'custom-theme-load-path
              (expand-file-name "themes" user-emacs-directory))
 
+;; Emacs stuff
 (load-module "cache")
 (load-module "packages")
 (load-module "visuals")
@@ -101,8 +102,8 @@
   :ensure nil
   :config
   (add-hook 'dired-mode-hook #'dired-hide-details-mode)
-    (lambda () (interactive)
-      (find-alternate-file "..")))
+  (lambda () (interactive)
+    (find-alternate-file "..")))
 
 
 (use-package compile
@@ -119,7 +120,7 @@
   :ensure nil
   :config
   (setq project-switch-commands 'project-find-file)
- )
+  )
 
 ;; MINAD Stack
 (use-package vertico
@@ -181,4 +182,3 @@
 	doom-modeline-buffer-file-name-style 'truncate-upto-project
 	doom-line-bar-width 0)
   )
-
