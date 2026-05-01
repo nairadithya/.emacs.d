@@ -20,7 +20,6 @@
 (defun my/find-file-in-emacs-dir ()
   (interactive)
   (project-switch-project user-emacs-directory)
-  (project-find-file)
   )
 
 (provide 'utils)

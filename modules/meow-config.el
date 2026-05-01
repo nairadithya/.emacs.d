@@ -50,6 +50,7 @@
    '("n b" . find-blog-post)
    '("f P" . my/find-file-in-emacs-dir)
    '("n f" . my/find-notes)
+   '("o c" . calc)
    
    '("g" . (lambda () (interactive) (require 'magit) (magit-status)))
    '("?" . meow-cheatsheet))

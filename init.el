@@ -22,9 +22,15 @@
 (load-module "packages")
 (load-module "visuals")
 (load-module "utils")
+
+;; Code
 (load-module "ocaml")
+(load-module "rust")
+
+;; Configuration
 (load-module "meow-config")
 (load-module "org-config")
+(load-module "help-config")
 
 ;; use-package with package.el:
 (use-package meow :ensure t

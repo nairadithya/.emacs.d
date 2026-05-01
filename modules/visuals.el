@@ -8,7 +8,6 @@
 (column-number-mode 1)
 (show-paren-mode 1)
 (global-display-line-numbers-mode 1)
-(global-visual-line-mode -1)
 
 ;; Startup
 (setq inhibit-startup-screen t
@@ -28,7 +27,7 @@
   :config
   (setq modus-themes-mixed-fonts t
         modus-themes-italic-constructs t)
-  (modus-themes-load-theme 'ef-frost))
+  (modus-themes-load-theme 'ef-dream))
 
 ;; Fonts — defined early, re-applied after init and after any theme load
 (defun my/setup-faces ()
@@ -42,10 +41,10 @@
 
 ;; Visual fill column
 (use-package visual-fill-column
-  :after org
-  :config
-  (setq visual-fill-column-width 80
-        visual-fill-column-center-text t))
+  :ensure t
+  :custom
+  (visual-fill-column-width 80)
+  (visual-fill-column-center-text t))
 
 ;; Modeline
 (force-mode-line-update t)
