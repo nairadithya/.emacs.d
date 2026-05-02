@@ -1,0 +1,12 @@
+#+OPTIONS: toc:nil num:nil ^:nil
+#+TYPST_HEADER: #set page(paper: "a4", margin: (top: 2.5cm, bottom: 2.5cm, left: 3cm, right: 3cm))
+#+TYPST_HEADER: #set text(font: "IBM Plex Serif", size: 11pt, fill: rgb("#1a1a1a"))
+#+TYPST_HEADER: #set par(justify: true, leading: 0.75em, spacing: 1.2em)
+#+TYPST_HEADER: #show heading.where(level: 1): it => block(above: 2em, below: 1em)[#set text(size: 1.6em, weight: 700, fill: rgb("#111111"), font: "IBM Plex Serif"); #it.body]
+#+TYPST_HEADER: #show heading.where(level: 2): it => block(above: 1.5em, below: 0.75em)[#set text(size: 1.2em, weight: 600, fill: rgb("#222222"), font: "IBM Plex Serif"); #it.body]
+#+TYPST_HEADER: #show heading.where(level: 3): it => block(above: 1.2em, below: 0.5em)[#set text(size: 1em, weight: 600, fill: rgb("#444444"), font: "IBM Plex Serif"); #it.body]
+#+TYPST_HEADER: #show link: it => text(fill: rgb("#2563a8"), font: "IBM Plex Sans")[#underline(it)]
+#+TYPST_HEADER: #show raw: it => text(font: "IBM Plex Mono", size: 0.9em, fill: rgb("#1a1a1a"))[#it]
+#+TYPST_HEADER: #show raw.where(block: true): it => block(fill: rgb("#f4f4f4"), inset: 1em, radius: 4pt, width: 100%)[#it]
+#+TYPST_HEADER: #show quote.where(block: true): it => pad(left: 1.5em)[#block(stroke: (left: 3pt + rgb("#cccccc")), inset: (left: 1em))[#text(style: "italic", fill: rgb("#555555"))[#it.body]]]
+#+TYPST_HEADER: #show figure.where(kind: raw): it => align(left, it.body)

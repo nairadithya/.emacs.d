@@ -1,5 +1,6 @@
 ;; Packages Setup  -*- lexical-binding: t; -*-
 (require 'package)
+(setq use-package-compute-statistics t)
 (setq package-archives ;; Repo setup
       '(("gnu"   . "https://elpa.gnu.org/packages/")
        ("nongnu" . "https://elpa.nongnu.org/packages/")
@@ -9,7 +10,7 @@
 ;; Force ELPA packages to load before built-ins
 (package-initialize)
 ;; Options
-(setq package-native-compile t ;; Enabling Native Compilation and ignoring async reports and erros
+(setq native-comp-jit-compilation t ;; Enabling Native Compilation and ignoring async reports and erros
       native-comp-async-report-warnings-errors nil)
 (unless (package-installed-p 'use-package) ;; Guard that Claude told me toadd.
   (package-install 'use-package))

@@ -1,6 +1,7 @@
 ;; --- init.el --- Emacs configuration -*- lexical-binding: t; -*-
 ;; GC Optimization 
 (setq gc-cons-threshold (* 50 1000 1000))
+(add-hook 'after-init-hook (lambda () (setq gc-cons-threshold (* 2 1000 1000))))
 
 ;; Custom file setup
 (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
@@ -25,6 +26,7 @@
 (load-module "utils")
 
 ;; Code
+(load-module "treesitter")
 (load-module "ocaml")
 (load-module "rust")
 
@@ -56,7 +58,6 @@
   (tab-always-indent 'complete)
   (text-mode-ispell-word-completion nil)
   (read-extended-command-predicate #'command-completion-default-include-p)
-  (read-extended-command-predicate #'command-completion-default-include-p)
   (minibuffer-prompt-properties '(read-only t cursor-intangible t face minibuffer-prompt))
   (save-place-mode 1) ;; Save the place your cursor was at for files.
   (auto-save-visited-mode 1) ;; Automatically saves buffers, with a timer.
@@ -68,8 +69,7 @@
 	;; Choose newer config over compiled/elisp
 	load-prefer-newer t
 	backup-by-copying t
-	;; Flash frame (see visuals.el for the flash code)
-	visible-bell t
+	;; Flash frame (see visuals.el for the flash frame
 	apropos-do-all t
 	ediff-window-setup-function 'ediff-setup-windows-plain
 	auto-save-visited-interval 30
@@ -87,6 +87,7 @@
 
 (use-package magit
   :defer t
+  :ensure t
   :after transient
   :commands (magit-status) 
   :bind ("C-x g" . #'magit-status)
@@ -94,20 +95,20 @@
   )
 
 (use-package exec-path-from-shell
+  :defer t
   :ensure t
-  :config
+  :init
   (exec-path-from-shell-initialize))
 
 (use-package dired
   :ensure nil
   :config
-  (add-hook 'dired-mode-hook #'dired-hide-details-mode)
-  (lambda () (interactive)
-    (find-alternate-file "..")))
+  (add-hook 'dired-mode-hook #'dired-hide-details-mode))
 
 
 (use-package compile
   :defer t
+  :ensure nil
   :custom
   (compilation-always-kill t)
   (compilation-scroll-output t)
@@ -142,6 +143,7 @@
 
 (use-package marginalia :ensure t :init (marginalia-mode))
 (use-package typst-ts-mode
+  :ensure t
   :vc (:url "https://codeberg.org/meow_king/typst-ts-mode.git"))
 
 (use-package consult
@@ -157,6 +159,7 @@
 
 (use-package consult-eglot
   :ensure t
+  :after eglot
   :bind (:map eglot-mode-map
               ("M-g s" . consult-eglot-symbols)))
 
@@ -165,13 +168,12 @@
   :hook (embark-collect-mode . consult-preview-at-point-mode))
 
 (use-package corfu
-  :init
-  (global-corfu-mode))
+  :hook (prog-mode . global-corfu-mode)
+  :defer t)
 
 (use-package doom-modeline
   :ensure t
-  :init
-  (doom-modeline-mode 1)
+  :hook (after-init . doom-modeline-mode)
   :config
   (setq doom-modeline-height 25
 	doom-modeline-bar-width 2
@@ -180,5 +182,4 @@
 	doom-modeline-modal-modern-icon t
 	doom-modeline-major-mode-icon t
 	doom-modeline-buffer-file-name-style 'truncate-upto-project
-	doom-line-bar-width 0)
-  )
+  ))

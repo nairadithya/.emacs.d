@@ -1,19 +1,51 @@
 (require 'org)
 
+(defun my/org-aesthetics ()
+  (require 'org-indent)
+  ;; Aesthetique
+  
+  (set-face-attribute 'org-code nil   :inherit '(shadow fixed-pitch))
+  (set-face-attribute 'org-indent nil :inherit '(org-hide fixed-pitch))
+  (set-face-attribute 'org-verbatim nil :inherit '(shadow fixed-pitch))
+  (set-face-attribute 'org-special-keyword nil :inherit '(font-lock-comment-face fixed-pitch))
+  (set-face-attribute 'org-meta-line nil :inherit '(font-lock-comment-face fixed-pitch))
+  (set-face-attribute 'org-checkbox nil :inherit 'fixed-pitch)
+  (set-face-attribute 'org-block nil :inherit 'fixed-pitch)
+  )
+
+
 (defun my/org-mode-setup ()
   (org-indent-mode)
-  (variable-pitch-mode 1)
   (auto-fill-mode 0)
   (visual-line-mode 1)
   (visual-fill-column-mode 1)
-  (add-hook 'org-mode-hook 'variable-pitch-mode)
+  (variable-pitch-mode 1)
+  (my/org-aesthetics)
   (setq org-startup-indented t))
+;; Use a specific PDF viewer (e.g., Evince, Okular, Zathura, etc.)
+
+(setq org-file-apps
+      '((auto-mode . emacs)
+        ("\\.pdf\\'" . (lambda (file _link)
+                         (start-process "sioyek" nil "sioyek" file)))
+        ("\\.x?html?\\'" . default)))
+
 
 (use-package org
   :hook (org-mode . my/org-mode-setup)
   :config
   (setq org-ellipsis " ▾"
-        org-hide-emphasis-markers t))
+        org-hide-emphasis-markers t)
+  :bind
+  ("M-j" . org-move-item-up)
+  ("M-k" . org-move-item-down))
+
+(use-package ox-typst
+  :after org
+  :custom
+  (org-typst-from-latex-environment #'org-typst-from-latex-with-naive)
+  (org-typst-from-latex-fragment #'org-typst-from-latex-with-naive))
+
 
 (use-package org-bullets
   :after org
@@ -22,24 +54,4 @@
   (org-bullets-bullet-list '("◉" "○" "●" "○" "●" "○" "●")))
 
 
-(dolist (face '((org-level-1 . 1.2)
-                (org-level-2 . 1.1)
-                (org-level-3 . 1.05)
-                (org-level-4 . 1.0)
-                (org-level-5 . 1.1)
-                (org-level-6 . 1.1)
-                (org-level-7 . 1.1)
-                (org-level-8 . 1.1)))
-  (set-face-attribute (car face) nil :font "IBM Plex Serif" :weight 'regular :height (cdr face)))
-
-(require 'org-indent)
-
-;; Aesthetique
-(set-face-attribute 'org-code nil   :inherit '(shadow fixed-pitch))
-(set-face-attribute 'org-indent nil :inherit '(org-hide fixed-pitch))
-(set-face-attribute 'org-verbatim nil :inherit '(shadow fixed-pitch))
-(set-face-attribute 'org-special-keyword nil :inherit '(font-lock-comment-face fixed-pitch))
-(set-face-attribute 'org-meta-line nil :inherit '(font-lock-comment-face fixed-pitch))
-(set-face-attribute 'org-checkbox nil :inherit 'fixed-pitch)
-(set-face-attribute 'org-block nil :inherit 'fixed-pitch)
 (provide 'org-config)

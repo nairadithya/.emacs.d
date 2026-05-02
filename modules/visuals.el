@@ -21,13 +21,12 @@
 
 ;; Theme
 (use-package ef-themes
-  :ensure t
+  :defer t
   :init
   (ef-themes-take-over-modus-themes-mode 1)
   :config
   (setq modus-themes-mixed-fonts t
-        modus-themes-italic-constructs t)
-  (modus-themes-load-theme 'ef-dream))
+        modus-themes-italic-constructs t))
 
 ;; Fonts — defined early, re-applied after init and after any theme load
 (defun my/setup-faces ()
@@ -37,11 +36,12 @@
 
 (add-hook 'server-after-make-frame-hook #'my/setup-faces)
 (add-hook 'after-init-hook #'my/setup-faces)
+(add-hook 'after-init-hook (lambda () (load-theme 'ef-owl)))
 (advice-add 'load-theme :after (lambda (&rest _) (my/setup-faces)))
 
 ;; Visual fill column
 (use-package visual-fill-column
-  :ensure t
+  :defer t
   :custom
   (visual-fill-column-width 80)
   (visual-fill-column-center-text t))
@@ -61,7 +61,7 @@
                             (set-face-background 'mode-line orig))))))
 
 ;; Disable line numbers in certain modes
-(dolist (mode '(org-mode-hook term-mode-hook eshell-mode-hook))
+(dolist (mode '(org-mode-hook Info-mode-hook help-mode-hook term-mode-hook shell-mode-hook eshell-mode-hook))
   (add-hook mode (lambda () (display-line-numbers-mode 0))))
 
 (provide 'visuals)

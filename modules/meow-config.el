@@ -43,7 +43,7 @@
    '("w h" . windmove-left)
    '("w l" . windmove-right)
    '("w j" . windmove-down)
-   '("w k" . windmove-down)
+   '("w k" . windmove-up)
    '("w c" . delete-window)
 
    ;; Utils
@@ -115,7 +115,6 @@
    '("Y" . meow-sync-grab)
    '("z" . meow-pop-selection)
    '("'" . repeat)
-   '("<escape>" . ignore)
    '("<escape>" . ignore)
    ))
 
