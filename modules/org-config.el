@@ -36,8 +36,12 @@
   (setq org-ellipsis " ▾"
         org-hide-emphasis-markers t)
   :bind
-  ("M-j" . org-move-item-up)
-  ("M-k" . org-move-item-down))
+  ("M-k" . org-move-item-up)
+  ("M-j" . org-move-item-down)
+  ("M-k" . org-move-subtree-up)
+  ("M-j" . org-move-subtree-down)
+  ("C-c o A". org-agenda)
+  )
 
 (use-package ox-typst
   :after org
