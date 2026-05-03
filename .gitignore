@@ -3,3 +3,4 @@
 /tree-sitter/
 *.data
 /eln-cache/
+/custom.el
