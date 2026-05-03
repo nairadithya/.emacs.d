@@ -60,6 +60,7 @@
   (read-extended-command-predicate #'command-completion-default-include-p)
   (minibuffer-prompt-properties '(read-only t cursor-intangible t face minibuffer-prompt))
   (save-place-mode 1) ;; Save the place your cursor was at for files.
+  (global-auto-revert-mode t)
   (auto-save-visited-mode 1) ;; Automatically saves buffers, with a timer.
   (initial-buffer-choice 'dashboard-open)
   ;; Settings
@@ -68,6 +69,7 @@
 	completion-ignore-case t
 	;; Choose newer config over compiled/elisp
 	load-prefer-newer t
+	use-short-answers t
 	backup-by-copying t
 	;; Flash frame (see visuals.el for the flash frame
 	apropos-do-all t

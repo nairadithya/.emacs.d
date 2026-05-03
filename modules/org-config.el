@@ -22,7 +22,6 @@
   (variable-pitch-mode 1)
   (my/org-aesthetics)
   (setq org-startup-indented t))
-;; Use a specific PDF viewer (e.g., Evince, Okular, Zathura, etc.)
 
 (setq org-file-apps
       '((auto-mode . emacs)
