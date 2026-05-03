@@ -3,7 +3,7 @@
 
 This is a custom emacs config, focused mainly on being minimal and using as few external packages as possible.
 
-This is my configuration for both development and writing prose.
+This is my configuration for development and writing prose.
 
 Feel free to steal and use to build your own.
 
@@ -17,8 +17,9 @@ Feel free to steal and use to build your own.
 The structure is a bit loosely defined because this is for me.
 
 The config is broken up into modules stored in the =modules/= folder, inspired off of Doom Emacs. A small elisp function is written to help load these files.
-
 * Features
 1. Modal editing with  [[https://github.com/meow-edit/meow/][meow]]
 2. Uses [[https://protesilaos.com/][protesilaos]]' [[https://protesilaos.com/emacs/modus-themes][modus-themes]]
 3. Uses the IBM Plex family for typography.
+4. Invests heavily in making org-mode look pretty without too many plugins. Adds centering (using =visual-fill-column-mode=) and =org-bullets=.
+
