@@ -29,7 +29,7 @@
 (load-module "treesitter")
 (load-module "ocaml")
 (load-module "rust")
-
+(load-module "markdown")
 ;; Configuration
 (load-module "meow-config")
 (load-module "org-config")

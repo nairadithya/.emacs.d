@@ -13,5 +13,5 @@
 * Language Specific Tooling
 - [x] OCAML
 - [x] Typst
-- [ ] Rust
+- [X] Rust
 - [ ] Python
