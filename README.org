@@ -22,4 +22,3 @@ The config is broken up into modules stored in the =modules/= folder, inspired o
 2. Uses [[https://protesilaos.com/][protesilaos]]' [[https://protesilaos.com/emacs/modus-themes][modus-themes]]
 3. Uses the IBM Plex family for typography.
 4. Invests heavily in making org-mode look pretty without too many plugins. Adds centering (using =visual-fill-column-mode=) and =org-bullets=.
-

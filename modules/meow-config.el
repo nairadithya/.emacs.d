@@ -51,6 +51,10 @@
    '("f P" . my/find-file-in-emacs-dir)
    '("n f" . my/find-notes)
    '("o c" . calc)
+
+   ;; Org-journal
+   '("n j j" . my/journal-create-entry)
+   '("n j s" . my/journal-search-entries)
    
    '("g" . (lambda () (interactive) (require 'magit) (magit-status)))
    '("?" . meow-cheatsheet))
