@@ -1,5 +1,6 @@
 (require 'org)
 
+
 (defun my/org-aesthetics ()
   (require 'org-indent)
   ;; Aesthetique
@@ -56,5 +57,26 @@
   :custom
   (org-bullets-bullet-list '("◉" "○" "●" "○" "●" "○" "●")))
 
+(defcustom journal-directory "~/notes/journal/"
+  "Journal Directory"
+  :type 'directory)
+
+(defvar journal-filename-format "%Y_%m_%d.org")
+(defvar journal-boilerplate-format "* %A,%e %B %Y\n")
+
+(defun journal-today-filename ()
+  (format-time-string journal-filename-format (current-time))
+  )  
+
+(defun journal--init-entry (filepath)
+  (write-region (format-time-string journal-boilerplate-format (current-time)) nil filepath)
+  (find-file filepath))
+
+(defun journal-today-create-entry ()
+  (interactive)
+  (setq journal-file-path (expand-file-name (concat journal-directory (journal-today-filename))))
+  (if (file-exists-p filepath)
+      (find-file filepath)
+    (journal--init-entry filepath)))
 
 (provide 'org-config)
