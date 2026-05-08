@@ -22,4 +22,8 @@
   (project-switch-project user-emacs-directory)
   )
 
+(defun reload-config ()
+  (interactive)
+  (load-file (expand-file-name (concat user-emacs-directory "init.el"))))
+
 (provide 'utils)

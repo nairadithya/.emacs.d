@@ -61,8 +61,10 @@
   "Journal Directory"
   :type 'directory)
 
+(setq notes-directory "~/notes/")
+
 (defvar journal-filename-format "%Y_%m_%d.org")
-(defvar journal-boilerplate-format "* %A,%e %B %Y\n")
+(defvar journal-boilerplate-format "** %A,%e %B %Y\n")
 
 (defun journal-today-filename ()
   (format-time-string journal-filename-format (current-time))
@@ -75,8 +77,21 @@
 (defun journal-today-create-entry ()
   (interactive)
   (setq journal-file-path (expand-file-name (concat journal-directory (journal-today-filename))))
-  (if (file-exists-p filepath)
-      (find-file filepath)
-    (journal--init-entry filepath)))
+  (if (file-exists-p journal-file-path)
+      (find-file journal-file-path)
+    (journal--init-entry journal-file-path)))
+
+(defun journal-search-entries ()
+  (interactive)
+  (consult-ripgrep journal-directory)) 
+
+(use-package org-capture
+  :ensure nil
+  :config
+  (setq org-capture-templates
+	'(
+	  ("e" "College evaluation" entry (file+headline "~/notes/events.org" "Evaluations") "* %?\nSCHEDULED: %^T")
+	  ("i" "Quick Inbox Capture" entry (file+headline "~/notes/todo.org" "Inbox") "* %^{Enter the thing to capture:}")
+	  )))
 
 (provide 'org-config)

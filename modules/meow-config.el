@@ -53,8 +53,8 @@
    '("o c" . calc)
 
    ;; Org-journal
-   '("n j j" . my/journal-create-entry)
-   '("n j s" . my/journal-search-entries)
+   '("n j j" . journal-today-create-entry)
+   '("n j s" . journal-search-entries)
    
    '("g" . (lambda () (interactive) (require 'magit) (magit-status)))
    '("?" . meow-cheatsheet))

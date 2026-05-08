@@ -19,6 +19,8 @@
 (add-to-list 'custom-theme-load-path
              (expand-file-name "themes" user-emacs-directory))
 
+(setq emacs-theme 'ef-arbutus)
+
 ;; Emacs stuff
 (load-module "cache")
 (load-module "packages")
@@ -59,7 +61,7 @@
   (text-mode-ispell-word-completion nil)
   (read-extended-command-predicate #'command-completion-default-include-p)
   (minibuffer-prompt-properties '(read-only t cursor-intangible t face minibuffer-prompt))
-  (save-place-mode 1) ;; Save the place your cursor was at for files.
+  (save-place-mode 1) ;; Save  place your cursor was at for files.
   (global-auto-revert-mode t)
   (auto-save-visited-mode 1) ;; Automatically saves buffers, with a timer.
   (initial-buffer-choice 'dashboard-open)
