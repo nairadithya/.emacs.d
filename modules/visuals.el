@@ -36,8 +36,13 @@
 
 (add-hook 'server-after-make-frame-hook #'my/setup-faces)
 (add-hook 'after-init-hook #'my/setup-faces)
-(add-hook 'after-init-hook (lambda () (load-theme 'ef-owl)))
+(add-hook 'after-init-hook (lambda () (load-theme emacs-theme :no-confirm)))
 (advice-add 'load-theme :after (lambda (&rest _) (my/setup-faces)))
+
+
+(use-package nerd-icons-dired
+  :hook
+  (dired-mode . nerd-icons-dired-mode))
 
 ;; Visual fill column
 (use-package visual-fill-column
