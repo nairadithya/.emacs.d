@@ -66,19 +66,18 @@
   (auto-save-visited-mode 1) ;; Automatically saves buffers, with a timer.
   (initial-buffer-choice 'dashboard-open)
   ;; Settings
-  (setq read-file-name-completion-ignore-case t
-	read-buffer-completion-ignore-case t
-	completion-ignore-case t
-	;; Choose newer config over compiled/elisp
-	load-prefer-newer t
-	use-short-answers t
-	backup-by-copying t
-	;; Flash frame (see visuals.el for the flash frame
-	apropos-do-all t
-	ediff-window-setup-function 'ediff-setup-windows-plain
-	auto-save-visited-interval 30
-	auto-save-default nil
-	)
+  (read-file-name-completion-ignore-case t)
+  (read-buffer-completion-ignore-case t)
+  (completion-ignore-case t)
+  ;; Choose newer config over compiled/elisp
+  (load-prefer-newer t)
+  (use-short-answers t)
+  (backup-by-copying t)
+  ;; Flash frame (see visuals.el for the flash frame
+  (apropos-do-all t)
+  (ediff-window-setup-function 'ediff-setup-windows-plain)
+  (auto-save-visited-interval 30)
+  (auto-save-default nil)
   )
 
 
