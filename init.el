@@ -19,7 +19,7 @@
 (add-to-list 'custom-theme-load-path
              (expand-file-name "themes" user-emacs-directory))
 
-(setq emacs-theme 'ef-arbutus)
+(setq emacs-theme 'ef-bio)
 
 ;; Emacs stuff
 (load-module "cache")
@@ -30,8 +30,10 @@
 ;; Code
 (load-module "treesitter")
 (load-module "ocaml")
+(load-module "haskell")
 (load-module "rust")
 (load-module "markdown")
+(load-module "agents")
 ;; Configuration
 (load-module "meow-config")
 (load-module "org-config")
@@ -106,6 +108,8 @@
 (use-package dired
   :ensure nil
   :config
+  (setq dired-listing-switches "-alh --group-directories-first"
+        dired-dwim-target t)
   (add-hook 'dired-mode-hook #'dired-hide-details-mode))
 
 
@@ -186,3 +190,7 @@
 	doom-modeline-major-mode-icon t
 	doom-modeline-buffer-file-name-style 'truncate-upto-project
   ))
+
+(use-package avy
+  :ensure t
+  :bind ("M-j" . avy-goto-char-timer))

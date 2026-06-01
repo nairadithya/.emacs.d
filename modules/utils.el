@@ -14,8 +14,7 @@
 
 (defun my/find-notes ()
   (interactive)
-  (let ((default-directory org-notes-directory))
-    (call-interactively #'find-file)))
+  (project-switch-project org-notes-directory))
 
 (defun my/find-file-in-emacs-dir ()
   (interactive)

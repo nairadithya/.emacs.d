@@ -64,7 +64,7 @@
 (setq notes-directory "~/notes/")
 
 (defvar journal-filename-format "%Y_%m_%d.org")
-(defvar journal-boilerplate-format "** %A,%e %B %Y\n")
+(defvar journal-boilerplate-format "** %A, %e %B %Y\n*** Win\n*** Log\n*** Feelings\n*** Ideas / Insights\n*** Next Step\n")
 
 (defun journal-today-filename ()
   (format-time-string journal-filename-format (current-time))

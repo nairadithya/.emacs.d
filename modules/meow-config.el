@@ -43,6 +43,8 @@
    '("w h" . windmove-left)
    '("w l" . windmove-right)
    '("w j" . windmove-down)
+   '("w u" . winner-undo)
+   '("w U" . winner-redo)
    '("w k" . windmove-up)
    '("w c" . delete-window)
 

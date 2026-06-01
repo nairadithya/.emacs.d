@@ -6,11 +6,14 @@
 ;; OCaml-specific LSP extensions via Eglot
 (use-package ocaml-eglot
   :defer t
-  :ensure t)
+  :ensure t
+  :hook
+  (tuareg-mode . ocaml-eglot-mode)
+  (ocaml-eglot-mode . eglot-ensure)
+  )
 
 (use-package tuareg
-  :ensure t
-  :hook (tuareg-mode . ocaml-eglot-setup))
+  :ensure t)
 
 (use-package flymake
   :defer t

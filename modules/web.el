@@ -1,10 +1,7 @@
 (use-package web-mode :ensure t)
 
-;; Astro Configuration
-(define-derived-mode astro-mode web-mode "astro")
-
 (setq auto-mode-alist
-      (append '((".*\\.astro\\'" . astro-mode))
+      (append '((".*\\.astro\\'" . web-mode))
               auto-mode-alist))
 
 (use-package eglot
