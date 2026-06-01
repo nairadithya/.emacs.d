@@ -82,8 +82,6 @@
   (auto-save-default nil)
   )
 
-
-
 (use-package transient 
   :demand t 
   :ensure t
@@ -194,3 +192,4 @@
 (use-package avy
   :ensure t
   :bind ("M-j" . avy-goto-char-timer))
+
